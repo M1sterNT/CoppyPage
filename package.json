@@ -1,0 +1,22 @@
+{
+  "name": "coppypages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "facebook-api-video-upload": "^1.4.0",
+    "fb": "^2.0.0",
+    "fbvideos": "^1.0.2",
+    "firebase-admin": "^7.0.0",
+    "node-cron": "^2.0.3",
+    "node-json-db": "^0.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "MisterNT",
+  "license": "MIT"
+}
