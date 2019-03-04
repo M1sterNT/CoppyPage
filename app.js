@@ -22,16 +22,19 @@ admin.initializeApp({
     databaseURL: 'https:///facebook-page-01.firebaseio.com'
 })
 const db = admin.firestore();
-const token = "EAAAAAYsX7TsBAHgmkHZB3dIO4LUO6ayJZBzOhfZApgNYY8Kpa8Oz1D23ju2SXpZAzswnvyzsWG4MLc4PRmOWCOFpHeZAXRoAx8Q0VHvm8QZAPd8oSrr5lAwbS1PgOY8n3DLYZAawqKGoJ8LE1ZCcpuWe5k13HSGAVyFOQF0J64YREauHu31L2VTSDFvMEUxYgz0V3dPUkEPJQO1WkTgAiF8b"
-FB.setAccessToken(token);
-getPages()
-
+Init()
 cron.schedule('* * 1 * *', () => {
-    getPages()
+    Init()
     console.log('running a CoppyPages every hour');
 });
 //main()
 
+async function Init(){
+    let refDB = await db.collection("Token").doc("muGqVjDejNL0pvTL45nr").get();
+    console.log(refDB.data().token)
+    FB.setAccessToken(refDB.data().token);
+    getPages()
+}
 
 async function main() {
     let LinkHd = await getLinkHdVdieo("https://www.facebook.com/newsclearvdo/videos/259707048083633/")
